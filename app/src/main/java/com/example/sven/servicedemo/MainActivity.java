@@ -15,11 +15,13 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
 
+    private ServiceA.ABinder mBinder;
+
     private ServiceConnection mConn = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             Log.i(TAG, "onServiceConnected...");
-
+            mBinder = (ServiceA.ABinder) service;
         }
 
         @Override
@@ -53,5 +55,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void unbindServiceA(View v) {
         unbindService(mConn);
+    }
+
+    public void stopSelfServiceA(View v) {
+        mBinder.stopService(0);
+    }
+
+    public void startServiceB(View v) {
+        Intent intent = new Intent(this, ServiceB.class);
+        bindService(intent, mConn, Context.BIND_AUTO_CREATE);
     }
 }

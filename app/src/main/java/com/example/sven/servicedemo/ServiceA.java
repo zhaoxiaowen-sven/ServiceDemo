@@ -12,8 +12,14 @@ public class ServiceA extends Service {
 
     private static final String TAG = "ServiceA";
 
-    private Binder mBinder = new Binder();
+    private Binder mBinder = new ABinder();
 
+    class ABinder extends Binder {
+        public void stopService(int id) {
+            Log.i(TAG, "ServiceA stopService " + id);
+            ServiceA.this.stopSelf();
+        }
+    }
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
@@ -24,8 +30,9 @@ public class ServiceA extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-
         Log.i(TAG, "onCreate...");
+
+
     }
 
     @Override
