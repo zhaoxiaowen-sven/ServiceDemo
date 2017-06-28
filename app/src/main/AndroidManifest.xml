@@ -28,6 +28,14 @@
         <service
             android:name=".ServiceB"
             android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".ServiceC"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".ServiceD"
+            android:enabled="true"
             android:exported="true"></service>
     </application>
 

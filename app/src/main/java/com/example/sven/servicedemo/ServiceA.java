@@ -31,7 +31,13 @@ public class ServiceA extends Service {
     public void onCreate() {
         super.onCreate();
         Log.i(TAG, "onCreate...");
-
+        long id = Thread.currentThread().getId();
+        Log.i(TAG, "id = "+id);
+//        try {
+//            Thread.sleep(60 * 1000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
 
     }
 
@@ -44,7 +50,8 @@ public class ServiceA extends Service {
     @Override
     public boolean onUnbind(Intent intent) {
         Log.i(TAG, "onUnbind...");
-        return super.onUnbind(intent);
+//        return super.onUnbind(intent);
+        return true;
     }
 
     @Override

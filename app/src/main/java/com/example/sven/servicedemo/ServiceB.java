@@ -25,11 +25,11 @@ public class ServiceB extends Service {
         Log.i(TAG, "onCreate...");
         Intent intent = new Intent(this, MainActivity.class);
         Notification.Builder builder = new Notification.Builder(this);
-        Notification notification = builder.setContentText("this is a notify")
+        Notification notification = builder.setSmallIcon(R.mipmap.ic_launcher)
+                .setContentText("this is a notify")
                 .setContentTitle("notify!!!").setTicker("notify")
-                .setContentIntent(
-                        PendingIntent.getActivity(ServiceB.this, 0, intent,
-                                PendingIntent.FLAG_CANCEL_CURRENT))
+                .setContentIntent(PendingIntent.
+                        getActivity(ServiceB.this, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT))
                 .build();
         // builder.addAction(new PendingIntent())
 

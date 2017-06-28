@@ -35,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        long id = Thread.currentThread().getId();
+        Log.i(TAG, "id = "+id);
     }
 
     public void startServiceA(View v) {
@@ -65,4 +66,11 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ServiceB.class);
         bindService(intent, mConn, Context.BIND_AUTO_CREATE);
     }
+
+    public void startIntentServiceC(View v){
+        Intent intent = new Intent(this, ServiceC.class);
+        intent.putExtra("name", "service");
+        startService(intent);
+    }
+
 }

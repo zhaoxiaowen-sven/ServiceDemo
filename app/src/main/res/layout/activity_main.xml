@@ -41,4 +41,10 @@
         android:text="startServiceB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    <Button
+        android:onClick="startIntentServiceC"
+        android:text="startIntentServiceC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </LinearLayout>
