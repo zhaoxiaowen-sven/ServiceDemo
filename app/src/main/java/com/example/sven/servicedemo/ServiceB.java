@@ -24,6 +24,8 @@ public class ServiceB extends Service {
         super.onCreate();
         Log.i(TAG, "onCreate...");
         Intent intent = new Intent(this, MainActivity.class);
+        // 需要让Activity运行在新的任务栈中
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         Notification.Builder builder = new Notification.Builder(this);
         Notification notification = builder.setSmallIcon(R.mipmap.ic_launcher)
                 .setContentText("this is a notify")
@@ -31,12 +33,7 @@ public class ServiceB extends Service {
                 .setContentIntent(PendingIntent.
                         getActivity(ServiceB.this, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT))
                 .build();
-        // builder.addAction(new PendingIntent())
-
-        // PendingIntent pendingIntent = PendingIntent.getActivity(this, 0,
-        // notificationIntent, 0);
-        // notification.setLatestEventInfo(this, "这是通知的标题", "这是通知的内容",
-        // pendingIntent);
         startForeground(1, notification);
+
     }
 }
