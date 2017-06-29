@@ -38,14 +38,37 @@ public class ServiceA extends Service {
 //        } catch (InterruptedException e) {
 //            e.printStackTrace();
 //        }
-
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.i(TAG, "onStartCommand...");
+        Log.i(TAG, "onStartCommand...A");
         // return super.onStartCommand(intent, flags, startId);
         Log.i(TAG, "intent = " + intent.toString());
+
+        // try {
+        // Thread.sleep(5);
+        // } catch (InterruptedException e) {
+        // e.printStackTrace();
+        // }
+        // Log.i(TAG, "after stop self" + intent.toString());
+        // new Thread(new Runnable() {
+        // @Override
+        // public void run() {
+        // int i = 0;
+        // while(true) {
+        // i++;
+        // try {
+        //
+        // Log.i(TAG, "i="+i+"");
+        // Thread.sleep(1000);
+        // } catch (InterruptedException e) {
+        // e.printStackTrace();
+        // }
+        // }
+        // }
+        // }).start();
+        stopSelf();
         return START_STICKY;
         // return START_REDELIVER_INTENT;
     }
